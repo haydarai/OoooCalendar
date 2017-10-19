@@ -87,16 +87,16 @@ public class OoooSmartClock {
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
 
-        String fullDate = year + "-" + month + "-" + day;
+        String fullDate = year + "-" + String.format ("%02d", month) + "-" + String.format ("%02d", day);
         String nameOfDay = "";
-        String time = " " + hour + ":" + minute + ":" + second;
+        String time = " " + hour + ":" + String.format ("%02d", minute) + ":" + String.format ("%02d", second);
 
-        if (month == 10 && day == 19) {
+        if (month == 10 && day == 10) {
             nameOfDay = " DOUBLE-TENTH DAY";
         } else if (month == 8 && day == 8) {
             nameOfDay = " FATHER'S DAY";
         } else if (month == 12 && day == 25) {
-            nameOfDay = " X'MAS";
+            nameOfDay = " X'MAS DAY";
         }
 
         if (hour == 12 && (minute == 0 || minute == 1)) {
