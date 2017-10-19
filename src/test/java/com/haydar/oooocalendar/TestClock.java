@@ -15,6 +15,9 @@ public class TestClock {
         clock = new OoooSmartClock();
     }
 
+    /**
+     * Check whether the timezone setter works fine by using timezone getter
+     */
     @Test
     public void testSetTimeZone() {
         try {
