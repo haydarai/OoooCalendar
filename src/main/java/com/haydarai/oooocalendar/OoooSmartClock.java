@@ -87,10 +87,13 @@ public class OoooSmartClock {
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
 
+        // The String.format(...) used for adding leading zero on month/date/hour/minute/second that only have 1 digit.
         String fullDate = year + "-" + String.format ("%02d", month) + "-" + String.format ("%02d", day);
         String nameOfDay = "";
-        String time = " " + hour + ":" + String.format ("%02d", minute) + ":" + String.format ("%02d", second);
+        String time = " " + String.format ("%02d", hour) + ":" + String.format ("%02d", minute) + ":"
+                + String.format ("%02d", second);
 
+        // Special date conditions
         if (month == 10 && day == 10) {
             nameOfDay = " DOUBLE-TENTH DAY";
         } else if (month == 8 && day == 8) {
@@ -99,6 +102,7 @@ public class OoooSmartClock {
             nameOfDay = " X'MAS DAY";
         }
 
+        // Special time conditions
         if (hour == 12 && (minute == 0 || minute == 1)) {
             time = " NOON";
         } else if (hour == 18 && (minute == 0 || minute == 1)) {
